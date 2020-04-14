@@ -1,0 +1,34 @@
+{
+    "name": "sfire-framework/sfire-dom",
+    "description": "HTML / XML parser",
+    "keywords": [
+        "framework",
+        "sfire",
+        "dom",
+        "document",
+        "object",
+        "model",
+        "xhtml",
+        "html",
+        "html5",
+        "xml"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Kris Kuiper",
+            "email": "kris@sfire.io"
+        }
+    ],
+    "homepage": "https://sfire.io",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "sFire\\Dom\\": "./src/"
+        }
+    }
+}
