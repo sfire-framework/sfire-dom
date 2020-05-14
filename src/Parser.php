@@ -40,7 +40,7 @@ class Parser {
 
     /**
      * Contains the type of the content that needs to be parsed (html, xml)
-     * @var int|null
+     * @var null|int
      */
     private ?int $contentType = null;
 

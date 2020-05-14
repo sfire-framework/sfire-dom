@@ -1,6 +1,7 @@
 {
     "name": "sfire-framework/sfire-dom",
     "description": "HTML / XML parser",
+    "homepage": "https://sfire.io",
     "keywords": [
         "framework",
         "sfire",
@@ -20,11 +21,11 @@
             "email": "kris@sfire.io"
         }
     ],
-    "homepage": "https://sfire.io",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
     },
     "autoload": {
         "psr-4": {
