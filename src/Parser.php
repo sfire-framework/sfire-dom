@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace sFire\Dom;
 
+use sFire\Dom\Elements\Comment;
 use sFire\Dom\Elements\Node;
 use sFire\Dom\Elements\Text;
 use sFire\Dom\Exception\BadMethodCallException;
@@ -79,6 +80,26 @@ class Parser {
 
             //Check if there is an opening/closing tag
             if($content[$i] === '<') {
+
+                //Check if character is a HTML comment
+                if('<!--' === substr($content, $i, 4)) {
+
+                    $node = new Comment();
+
+                    for($a = $i; $a < $length; $a++) {
+
+                        $node -> appendContent($content[$a]);
+
+                        if('-->' === substr($content, $a, 3)) {
+
+                            $node -> appendContent(substr($content, ++$a, 2));
+                            $i = $a + 1;
+                            break;
+                        }
+                    }
+
+                    continue;
+                }
 
                 //Next character should be an alphabetical character, otherwise it is not a valid tag name
                 if(true === isset($content[$i + 1]) && true === (bool) preg_match('#[a-zA-Z/?]#', $content[$i + 1])) {
@@ -178,7 +199,7 @@ class Parser {
             if(false !== $parent) {
 
                 //Add the child to the parent and mark the parent als the parent in the child node if the node exists in the parent and the node is plain text or is an opening tag
-                if(false === $parent -> childExists($node) && ($node instanceof Text || true === $node -> getTag() -> isOpeningTag())) {
+                if(false === $parent -> childExists($node) && ($node instanceof Text || $node instanceof Comment || true === $node -> getTag() -> isOpeningTag())) {
 
                     $parent -> addChild($node);
                     $node -> setParent($parent);
@@ -189,7 +210,7 @@ class Parser {
             else {
 
                 //Check if the node is plain text or is an opening tag
-                if($node instanceof Text || true === $node -> getTag() -> isOpeningTag()) {
+                if($node instanceof Text || $node instanceof Comment || true === $node -> getTag() -> isOpeningTag()) {
 
                     if(false === in_array($node, $nodes, true)) {
                         $nodes[] = $node;
