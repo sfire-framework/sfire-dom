@@ -110,7 +110,7 @@ class Tag {
         $this -> content = $tag;
         $this -> contentType = $contentType;
 
-        if(false === (bool) preg_match('#^<(?<close>/)?(?<languageTag>\?)?(?<name>[^\s]+)(?<attributes>[\s\S]*?)(?<selfClose>/)?>$#', $tag, $match)) {
+        if(false === (bool) preg_match('#^<(?<close>/)?(?<languageTag>\?)?(?<name>[^\s/]+)(?<attributes>[\s\S]*?)(?<selfClose>/)?>$#', $tag, $match)) {
             throw new RuntimeException(sprintf('Tag "%s" is not a valid tag', $tag));
         }
 
