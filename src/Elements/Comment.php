@@ -17,29 +17,5 @@ namespace sFire\Dom\Elements;
  * @package sFire\Dom
  */
 class Comment extends DomElementAbstract {
-
-
-    /**
-     * Contains the content
-     * @var string
-     */
-    private string $content = '';
-
-
-    /**
-     * Appends the current content with new content
-     * @param string $content
-     */
-    public function appendContent(string $content) {
-        $this -> content .= $content;
-    }
-
-
-    /**
-     * Returns the content
-     * @return string
-     */
-    public function getContent() {
-        return $this -> content;
-    }
+    use StringTrait;
 }

@@ -192,4 +192,46 @@ class Node extends DomElementAbstract {
 
         return $this -> tag -> getAttributes();
     }
+
+
+    /**
+     * Returns the output excluding the node tag as a string from the current node
+     * @return string
+     */
+    public function getInnerContent(): string {
+
+        $content = '';
+
+        foreach($this -> getChildren() as $child) {
+
+            if($child instanceof Node) {
+                $content .= $child -> getTag() -> getContent();
+            }
+
+            $content .= $child -> getInnerContent();
+
+            if($child instanceof Node && true === $child -> getTag() -> shouldHaveClosingTag()) {
+                $content .= sprintf('</%s>', $child -> getTag() -> getName());
+            }
+        }
+
+        return $content;
+    }
+
+
+    /**
+     * Returns the output including the node tag itself as a string from the current node
+     * @return string
+     */
+    public function getContent(): string {
+
+        $content = $this -> getTag() -> getContent();
+        $content .= $this -> getInnerContent();
+
+        if($this -> getTag() -> shouldHaveClosingTag()) {
+            $content .= sprintf('</%s>', $this -> getTag() -> getName());
+        }
+
+        return $content;
+    }
 }
