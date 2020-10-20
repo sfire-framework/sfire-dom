@@ -88,7 +88,7 @@ class Node extends DomElementAbstract {
      * @return bool
      */
     public function childExists(DomElementAbstract $node): bool {
-        return true === in_array($node, $this -> children);
+        return true === in_array($node, $this -> children, true);
     }
 
 

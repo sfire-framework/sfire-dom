@@ -1,3 +1,4 @@
+## sFire HTML/XML parser
 sFire DOM is a simple, flexible, HTML and XML parser. The goal is to assist in the development of tools which require a quick and easy way to scrape HTML or XML, whether it's valid or not.
 
 ### System Requirements
@@ -5,7 +6,7 @@ Requires PHP 7.4 or later; we recommend using the latest PHP version whenever po
 
 
 ### Current version
-The current version is 1.0.4
+The current version is 1.0.5
 
 
 ### Installation

@@ -198,7 +198,7 @@ class Parser {
             //If a parent exists
             if(false !== $parent) {
 
-                //Add the child to the parent and mark the parent als the parent in the child node if the node exists in the parent and the node is plain text or is an opening tag
+                //Add the child to the parent and mark the parent as the parent in the child node if the node exists in the parent and the node is plain text or is an opening tag
                 if(false === $parent -> childExists($node) && ($node instanceof Text || $node instanceof Comment || true === $node -> getTag() -> isOpeningTag())) {
 
                     $parent -> addChild($node);
