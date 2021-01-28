@@ -11,8 +11,7 @@
         "model",
         "xhtml",
         "html",
-        "html5",
-        "xml"
+        "html5"
     ],
     "license": "BSD-3-Clause",
     "authors": [
