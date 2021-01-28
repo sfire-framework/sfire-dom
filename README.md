@@ -6,7 +6,7 @@ Requires PHP 7.4 or later; we recommend using the latest PHP version whenever po
 
 
 ### Current version
-The current version is 2.0.0
+The current version is 2.0.0-beta-1
 
 
 ### Installation
